@@ -15,7 +15,7 @@ public class Authorization<BufferedReader> {
 	
 	
 	public String getAccessToken() {
-		String auth_url = "https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN";
+		String auth_url = "https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN&redirect=test";
 		String br = null ;
 		br = testIt(auth_url);
 		return br;
@@ -101,6 +101,7 @@ public class Authorization<BufferedReader> {
 			}
 
 		       }
+			
 			return sb.toString();
 
 		   }

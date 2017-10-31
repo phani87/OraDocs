@@ -18,6 +18,7 @@ import com.oracle.oradocs.Authorization;
 @WebServlet("/AuthServlet")
 public class AuthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	String auth_url = "https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,9 +34,12 @@ public class AuthServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		Authorization<BufferedReader> auth = new Authorization<>();
+		System.out.println(request.getHeader("redirect"));
 		String s = auth.getAccessToken();
-		 PrintWriter out = response.getWriter();
-		 out.println(s);
+		System.out.println(s);
+		PrintWriter out = response.getWriter();
+		out.println(s);
+		
 		System.out.println("Finished");
 	}
 
