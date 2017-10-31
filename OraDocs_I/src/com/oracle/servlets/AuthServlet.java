@@ -39,7 +39,7 @@ public class AuthServlet extends HttpServlet {
 		System.out.println(s);
 		PrintWriter out = response.getWriter();
 		out.println(s);
-		
+		System.out.println("Test");
 		System.out.println("Finished");
 	}
 
