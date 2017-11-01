@@ -40,6 +40,7 @@ public class AuthServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String auth_token = (String) request.getParameter("token");
 		String master_folder_id = (String) request.getParameter("master_folder");
+		
 		System.out.println(auth_token);
 		System.out.println(master_folder_id);
 		updateLinks = new OraDocsFolders(auth_token, master_folder_id);
