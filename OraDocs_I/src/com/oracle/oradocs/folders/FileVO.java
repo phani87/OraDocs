@@ -8,6 +8,7 @@ public class FileVO {
 	private String folder_id;
 	private String file_id;
 	private String prev_folder_id;
+	private String display_name;
 	public String getFile_name() {
 		return file_name;
 	}
@@ -43,5 +44,11 @@ public class FileVO {
 	}
 	public void setPrev_folder_id(String prev_folder_id) {
 		this.prev_folder_id = prev_folder_id;
+	}
+	public String getDisplay_name() {
+		return display_name;
+	}
+	public void setDisplay_name(String display_name) {
+		this.display_name = display_name;
 	}
 }

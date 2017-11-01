@@ -1,0 +1,43 @@
+body{
+  
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='aliceblue', endColorstr='aliceblue', GradientType=0);
+ /*  background: -webkit-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
+  background: -moz-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
+  background: -ms-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
+  background: -o-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
+  background: linear-gradient(to bottom, aliceblue 50%, aliceblue) !important; */
+  background-color : aliceblue;
+  color: #808080;
+}
+
+div.well{
+  height: 250px;
+} 
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+    width: 50%;
+    height: 50%;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 50px;
+    background-color:#f1dcdc;
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
+	border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+}
+
+#logo-container{
+  margin: auto;
+  margin-bottom: 10px;
+  width:50px;
+  height:50px;
+  background-image:url('http://oracledocs.com/wp-content/uploads/2011/10/unnamed-160x160.png');
+  background-size: contain;
+}

@@ -3,7 +3,9 @@ package com.oracle.servlets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.oracle.oradocs.Authorization;
+import com.oracle.oradocs.folders.FileVO;
+import com.oracle.oradocs.folders.OraDocsFolders;
 
 /**
  * Servlet implementation class AuthServlet
@@ -19,6 +23,7 @@ import com.oracle.oradocs.Authorization;
 public class AuthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String auth_url = "https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN";
+	OraDocsFolders updateLinks = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -31,16 +36,17 @@ public class AuthServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-		Authorization<BufferedReader> auth = new Authorization<>();
-		System.out.println(request.getHeader("redirect"));
-		String s = auth.getAccessToken();
-		System.out.println(s);
-		PrintWriter out = response.getWriter();
-		out.println(s);
-		System.out.println("Test");
-		System.out.println("Finished");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String auth_token = (String) request.getParameter("token");
+		String master_folder_id = (String) request.getParameter("master_folder");
+		System.out.println(auth_token);
+		System.out.println(master_folder_id);
+		updateLinks = new OraDocsFolders(auth_token, master_folder_id);
+		List<FileVO> updatedFiles = updateLinks.flowOrganizer();
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/success.jsp");
+		request.setAttribute("updatedFiles", updatedFiles);
+		requestDispatcher.forward(request, response);
 	}
 
 	/**
