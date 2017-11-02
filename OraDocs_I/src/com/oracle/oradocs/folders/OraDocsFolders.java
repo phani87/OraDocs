@@ -58,8 +58,11 @@ public class OraDocsFolders {
 	
 	
 	public static void main(String[] args) throws ClientProtocolException, IOException {
-		//new OraDocsFolders().flowOrganizer();
-		//new OraDocsFolders().get89date();
+		new OraDocsFolders(
+				"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6InUwY1BSU3dCYkE3V1BkZGR1MGo2QlBfRXZxVSIsImtpZCI6ImNvcnAuY2VydCJ9.eyJzdWIiOiJzaGlraGFyLm1pc2hyYUBvcmFjbGUuY29tIiwib3JhY2xlLm9hdXRoLnVzZXJfb3JpZ2luX2lkX3R5cGUiOiJMREFQX1VJRCIsIm9yYWNsZS5vYXV0aC51c2VyX29yaWdpbl9pZCI6InNoaWtoYXIubWlzaHJhQG9yYWNsZS5jb20iLCJpc3MiOiJjb3JwIiwib3JhY2xlLm9hdXRoLnN2Y19wX24iOiJjb3JwU2VydmljZVByb2ZpbGUiLCJpYXQiOjE1MDk2NDI2MjEsIm9yYWNsZS5vYXV0aC5wcm4uaWRfdHlwZSI6IkxEQVBfVUlEIiwib3JhY2xlLm9hdXRoLnRrX2NvbnRleHQiOiJyZXNvdXJjZV9hY2Nlc3NfdGsiLCJleHAiOjE1MTAyNDc0MjAsImF1ZCI6WyJodHRwczovL29yYWRvY3MtY29ycC5kb2N1bWVudHMudXMyLm9yYWNsZWNsb3VkLmNvbTo0NDMvZG9jdW1lbnRzIl0sIm9yYWNsZS5vYXV0aC5zdWIuaWRfdHlwZSI6IkxEQVBfVUlEIiwicHJuIjoic2hpa2hhci5taXNocmFAb3JhY2xlLmNvbSIsImp0aSI6IjM3NmU4MDc0LTJlZGQtNGRiZC05YjEzLWY1YTM4ZDViNWQ4MyIsIm9yYWNsZS5vYXV0aC5jbGllbnRfb3JpZ2luX2lkIjoiYmYyMDYxNTMtNWE0ZS00MjEyLTk5NTYtMjVhNmM0NDRlNDAyIiwib3JhY2xlLm9hdXRoLnNjb3BlIjoiaHR0cHM6Ly9vcmFkb2NzLWNvcnAuZG9jdW1lbnRzLnVzMi5vcmFjbGVjbG91ZC5jb206NDQzL2RvY3VtZW50cyIsInVzZXIudGVuYW50Lm5hbWUiOiJjb3JwIiwib3JhY2xlLm9hdXRoLmlkX2RfaWQiOiI2NjY4ODgxNzI5ODEyNTI1NCJ9.EG8W-vp3rrUEx0JhQ6FZWPhBGfqoAlRXiKCskiMLMCj6sPuNQWjo-evHZ9iqWITATuaMXHpdvms8rMbJnAw90z9UntTjxZhBl-tnnU1JYPpMHJ1Z4-z2T29OZV0cwVIQ7CSMswN9nItgC-OZ4zoRWFYnVVTFcNN7NTKnZWP147xmKhtd6iG2jVkdZyNxDdDARfDAzPnyaMeT2nmeirJrF8aucLqAFsrtdKsMFnihoIRINNmEKvX4yrcnlKEz8QQWbahMqnXHImSU24w0YJ2Z06egs3YxHsvDRdoj5Q08YBqFh8O9wJAduHCHkK4OnVymrnrJ146FQHzfnCl9_70cyg",
+				"F18613ABE15F95E4881AEC01F6C3FF17C1177A968060").flowOrganizer();
+		// new OraDocsFolders().get89date();
+		System.out.println("--------DONE----------");
 	}
 	
 	public List<FileVO> flowOrganizer() {
@@ -95,6 +98,7 @@ public class OraDocsFolders {
 		List<FolderVO> folderMap = new ArrayList<FolderVO>();
 		JSONObject jsonObject = new JSONObject(data);
 		FolderVO folderVo = null;
+		//System.out.println(jsonObject.toString());
 		int size = Integer.parseInt(jsonObject.get("count").toString());
 		if (size > 0) {
 			JSONArray array = (JSONArray) jsonObject.get("items"); // it should be any array name
@@ -146,6 +150,7 @@ public class OraDocsFolders {
 	private void iteratePublicLinks(String json_public_links) {
 		List<String> publicLinkList = new ArrayList<String>();
 		JSONObject publicLink = new JSONObject(json_public_links);
+		/*System.out.println(publicLink.toString());*/
 		int size = Integer.parseInt(publicLink.get("count").toString());
 		if (size > 0) {
 			JSONArray array = (JSONArray) publicLink.get("items");
@@ -154,7 +159,7 @@ public class OraDocsFolders {
 			while (iterator.hasNext()) {
 				Object it = iterator.next();
 				JSONObject pbLinks = (JSONObject) it;
-				System.out.println("Updating Link:::"+pbLinks.get("linkName"));
+				System.out.println("Updating Link Name:::"+pbLinks.get("linkName")+":::Updating Link:::"+pbLinks.get("linkID")+":::Expiration Time:::"+pbLinks.get("expirationTime"));
 				publicLinkList.add(pbLinks.get("linkID").toString());
 				updatePublicLink(publicLinkList);
 			}
@@ -163,12 +168,17 @@ public class OraDocsFolders {
 	
 	private void updatePublicLink(List<String> publicLinkList) {
 		
-		String exp_89_days = get89date();
+		//String exp_89_days = get89date();
 		
-		String exp_json = "{\r\n" + 
+		/*String exp_json = "{\r\n" + 
 				"    \"expirationTime\":\""+exp_89_days+"\",\r\n" + 
 				"}";
-		 
+		 */
+		
+		String exp_json = "{\r\n" + 
+				"    \"expirationTime\":\"2018-01-15T01:02:03\",\r\n" + 
+				"}";
+		
 		if(publicLinkList.size()>0) {
 			for(String pblcId : publicLinkList) {
 				try {
@@ -270,7 +280,7 @@ public class OraDocsFolders {
 		HttpGet request = new HttpGet(URL);
 
 		// add request header
-		request.addHeader("authorization", "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsIng1dCI6InUwY1BSU3dCYkE3V1BkZGR1MGo2QlBfRXZxVSIsImtpZCI6ImNvcnAuY2VydCJ9.eyJzdWIiOiJzaGlraGFyLm1pc2hyYUBvcmFjbGUuY29tIiwib3JhY2xlLm9hdXRoLnVzZXJfb3JpZ2luX2lkX3R5cGUiOiJMREFQX1VJRCIsIm9yYWNsZS5vYXV0aC51c2VyX29yaWdpbl9pZCI6InNoaWtoYXIubWlzaHJhQG9yYWNsZS5jb20iLCJpc3MiOiJjb3JwIiwib3JhY2xlLm9hdXRoLnN2Y19wX24iOiJjb3JwU2VydmljZVByb2ZpbGUiLCJpYXQiOjE1MDkzOTU0MzAsIm9yYWNsZS5vYXV0aC5wcm4uaWRfdHlwZSI6IkxEQVBfVUlEIiwib3JhY2xlLm9hdXRoLnRrX2NvbnRleHQiOiJyZXNvdXJjZV9hY2Nlc3NfdGsiLCJleHAiOjE1MTAwMDAyMjksImF1ZCI6WyJodHRwczovL29yYWRvY3MtY29ycC5kb2N1bWVudHMudXMyLm9yYWNsZWNsb3VkLmNvbTo0NDMvZG9jdW1lbnRzIl0sIm9yYWNsZS5vYXV0aC5zdWIuaWRfdHlwZSI6IkxEQVBfVUlEIiwicHJuIjoic2hpa2hhci5taXNocmFAb3JhY2xlLmNvbSIsImp0aSI6ImQ4NGRmNTA1LWM1ZWYtNDA5Yy05YTcxLTc0MGRlMzk3ODlmOSIsIm9yYWNsZS5vYXV0aC5jbGllbnRfb3JpZ2luX2lkIjoiYmYyMDYxNTMtNWE0ZS00MjEyLTk5NTYtMjVhNmM0NDRlNDAyIiwib3JhY2xlLm9hdXRoLnNjb3BlIjoiaHR0cHM6Ly9vcmFkb2NzLWNvcnAuZG9jdW1lbnRzLnVzMi5vcmFjbGVjbG91ZC5jb206NDQzL2RvY3VtZW50cyIsInVzZXIudGVuYW50Lm5hbWUiOiJjb3JwIiwib3JhY2xlLm9hdXRoLmlkX2RfaWQiOiI2NjY4ODgxNzI5ODEyNTI1NCJ9.oUNxqzNsdnx2DtHwehF62_6mcNQE4JYRanS-RHfAR0Ao-gNwS93DpXDDbn15KqvM91CTv_Hi6k-hFf7S9k7KjiW54rxVcFrJwG2aLsxA0qZ7_tG2DSu7jhPYXYg7Ke8qrk1mlwzTmXgGDHjXDloqXJH_GwNiOm2VbrCODb40VsC_rfJNAyMJ0_7lXem95af2kSER3ijJ5ylnwein94SSMtPQbtlzPiqbwUgLPKm9xMqQUYb7vWqOyeVz9c5krRI8srbWHh7_vQtwFJuho8KbM0_fVIcy3mFIu5ohF08Vr97vze8oCJZxj5BhI3HrA0Y1HoeAtbZ-CKTFakMTERX-0Q");
+		request.addHeader("authorization", "Bearer "+token);
 		request.addHeader("cache-control", "no-cache");
 		
 		HttpResponse response = client.execute(request);
