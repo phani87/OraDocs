@@ -168,16 +168,16 @@ public class OraDocsFolders {
 	
 	private void updatePublicLink(List<String> publicLinkList) {
 		
-		//String exp_89_days = get89date();
-		
-		/*String exp_json = "{\r\n" + 
-				"    \"expirationTime\":\""+exp_89_days+"\",\r\n" + 
-				"}";
-		 */
+		String exp_89_days = get89date();
 		
 		String exp_json = "{\r\n" + 
-				"    \"expirationTime\":\"2018-01-15T01:02:03\",\r\n" + 
+				"    \"expirationTime\":\""+exp_89_days+"\",\r\n" + 
 				"}";
+		 
+		
+		/*String exp_json = "{\r\n" + 
+				"    \"expirationTime\":\"2018-01-15T01:02:03\",\r\n" + 
+				"}";*/
 		
 		if(publicLinkList.size()>0) {
 			for(String pblcId : publicLinkList) {
