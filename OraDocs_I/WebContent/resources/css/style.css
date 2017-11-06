@@ -6,13 +6,20 @@ body{
   background: -ms-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
   background: -o-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
   background: linear-gradient(to bottom, aliceblue 50%, aliceblue) !important; */
-  background-color : aliceblue;
+  /* background-color : aliceblue; */
+  
   color: #808080;
 }
 
 div.well{
   height: 250px;
 } 
+
+div.backimg{
+	background-image : url(http://all4desktop.com/data_images/1920%20x%201200/4174777-oracle-headquarters.jpg);
+  background-size:50%;
+  background-repeat: repeat-x;
+}
 
 .Absolute-Center {
   margin: auto;
@@ -38,6 +45,6 @@ div.well{
   margin-bottom: 10px;
   width:50px;
   height:50px;
-  background-image:url('http://oracledocs.com/wp-content/uploads/2011/10/unnamed-160x160.png');
+  /* background-image:url(); */
   background-size: contain;
 }
