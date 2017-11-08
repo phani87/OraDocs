@@ -6,8 +6,7 @@ body{
   background: -ms-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
   background: -o-linear-gradient(to bottom, aliceblue 50%, aliceblue) !important;
   background: linear-gradient(to bottom, aliceblue 50%, aliceblue) !important; */
-  /* background-color : aliceblue; */
-  
+  background-image:url(../images/background-wood-13.jpg); 
   color: #808080;
 }
 
@@ -15,11 +14,23 @@ div.well{
   height: 250px;
 } 
 
-div.backimg{
-	background-image : url(http://all4desktop.com/data_images/1920%20x%201200/4174777-oracle-headquarters.jpg);
-  background-size:50%;
-  background-repeat: repeat-x;
-}
+/* div.backimg{
+ 	background-size: 20% 20%;
+  	height: 300px;
+	background-repeat: no-repeat;
+	background: -webkit-linear-gradient(to bottom, red 50%, black) !important;
+  	background: -moz-linear-gradient(to bottom, red 50%, black) !important;
+  	background: -ms-linear-gradient(to bottom, red 50%, black) !important;
+ 	background: -o-linear-gradient(to bottom, red 50%, black) !important;
+  	background: linear-gradient(to bottom, red 50%, black) !important;
+} */
+
+/* div.backpic{
+	background-image : url(../images/O-CloudSolutionHubs-rgb.jpg);
+	background-size: 20% 50%;
+  	height: 100px;
+  	background-repeat: no-repeat;
+} */
 
 .Absolute-Center {
   margin: auto;
@@ -30,8 +41,8 @@ div.backimg{
 .Absolute-Center.is-Responsive {
     width: 50%;
     height: 50%;
-    min-width: 300px;
-    max-width: 500px;
+    min-width: 500px;
+    max-width: 700px;
     padding: 50px;
     background-color:#f1dcdc;
     border-bottom-left-radius: 3%;
@@ -42,9 +53,11 @@ div.backimg{
 
 #logo-container{
   margin: auto;
-  margin-bottom: 10px;
-  width:50px;
-  height:50px;
-  /* background-image:url(); */
+  margin-bottom: 0px;
+  width:100px;
+  height:60px;
+  background-image:url(../images/O-CloudSolutionHubs-rgb.jpg); 
   background-size: contain;
+  background-repeat: no-repeat;
+  
 }

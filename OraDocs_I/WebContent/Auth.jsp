@@ -22,26 +22,26 @@
 				<div class="Absolute-Center is-Responsive">
 					<div id="logo-container"></div>
 					<div class="col-sm-12 col-md-10 col-md-offset-1">
-						<form action="AuthServlet" method="get" id="loginForm">
+						<form action="AuthServlet" method="get" id="loginForm" role="form">
 							<div class="form-group input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-qrcode"></i></span>
 								<textarea rows="5" cols="15" name="token" class="form-control"
 									id="token"
-									placeholder="Enter token, if you do not have token, then click to generate token and copy 'tokenValue'"></textarea>
+									placeholder="Enter token, if you do not have token, then click to generate token and copy 'tokenValue'"
+									class="form-control" required></textarea>
+								<span class="input-group-addon btn btn-primary"
+									onclick='javascript:window.open("https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN", "_blank", "scrollbars=1,resizable=1,height=300,width=450");'>Generate
+									Token</span>
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i
 									class="glyphicon glyphicon-folder-close"></i></span> <input
 									type="text" name="master_folder" id="folderID"
-									class="form-control" placeholder="Enter Folder ID">
+									class="form-control" placeholder="Enter Folder ID" required>
 							</div>
 							<div class="form-group">
 								<input type="submit" class="btn btn-primary" value="Update"
-									name="Update"><label style="color: black;"> To
-									generate your token </label><a href='#'
-									onclick='javascript:window.open("https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN", "_blank", "scrollbars=1,resizable=1,height=300,width=450");'
-									title='Pop Up'> click here</a>
+									style="width: -webkit-fill-available;" name="Update">
+
 							</div>
 						</form>
 					</div>
