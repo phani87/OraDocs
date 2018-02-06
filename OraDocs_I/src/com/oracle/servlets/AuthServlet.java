@@ -22,7 +22,7 @@ import com.oracle.oradocs.folders.OraDocsFolders;
 @WebServlet("/AuthServlet")
 public class AuthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String auth_url = "https://oradocs-corp.documents.us2.oraclecloud.com/documents/web?IdcService=GET_OAUTH_TOKEN";
+	String auth_url = "<AUTH_URL>";
 	OraDocsFolders updateLinks = null;
        
     /**
